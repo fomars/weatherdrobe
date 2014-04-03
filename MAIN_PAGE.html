@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form action="/request_weather" method="post">
+        <label for="latitude">Latitude</label>
+        <input name="lat" type="number" step="0.01" id="latitude">
+        <label for="longitude">Longitude</label>
+        <input name="lng" type="number" step="0.01" id="longitude">
+        <label for="date">Date</label>
+        <input name="date" type="date" id="date">
+        <input type="submit" value="get weather">
+    </form>
+</body>
+</html>

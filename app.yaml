@@ -1,0 +1,19 @@
+application: weatherdrobe
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  script: home.application
+
+- url: /request_weather
+  script: home.application
+
+- url: /admin
+  script: db.application
+
+libraries:
+- name: webapp2
+  version: latest

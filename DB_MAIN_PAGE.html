@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <body>
+    <form action="/add_item" method="post">
+      <div>
+          <label for="clothes_name">Name:</label>
+          <input id="clothes_name" name="clothes_name" type="text" >
+          <br>
+          <label for="min_temp">Min. temperature:</label>
+          <input id="min_temp" name="min_temp" type="number">
+          <br>
+          <label for="max_temp">Max. temperature:</label>
+          <input id="max_temp" name="max_temp" type="number" >
+          <br>
+          <label for="units">Units:</label>
+          <select id="units" name="units">
+              <option selected value="celsius">Celsius</option>
+              <option value="fahrenheit">Fahrenheit</option>
+          </select>
+
+          <br>
+          <input type="submit" value="Add Item">
+      </div>
+    </form>
+    <br>
+    <table >
+      <tr>
+        <th>Name</th><th>Min. temperature</th><th>Max. temperature</th>
+      </tr>
+      <tbody>
