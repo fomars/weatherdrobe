@@ -8,6 +8,7 @@ This module provides a Session object to manage and persist settings across
 requests (cookies, auth, proxies).
 
 """
+import logging
 import os
 from collections import Mapping
 from datetime import datetime
@@ -157,6 +158,7 @@ class SessionRedirectMixin(object):
                                    prepared_request, resp.raw)
             prepared_request._cookies.update(self.cookies)
             prepared_request.prepare_cookies(prepared_request._cookies)
+
 
             resp = self.send(
                 prepared_request,
@@ -457,6 +459,8 @@ class Session(SessionRedirectMixin):
         """Send a given PreparedRequest."""
         # Set defaults that the hooks can utilize to ensure they always have
         # the correct parameters to reproduce the previous request.
+        
+
         kwargs.setdefault('stream', self.stream)
         kwargs.setdefault('verify', self.verify)
         kwargs.setdefault('cert', self.cert)
@@ -477,8 +481,11 @@ class Session(SessionRedirectMixin):
         proxies = kwargs.get('proxies')
         hooks = request.hooks
 
+        logging.info("Before adapter: URL = "+request.url)
         # Get the appropriate adapter to use
         adapter = self.get_adapter(url=request.url)
+
+        logging.info("After adapter: URL = "+request.url)
 
         # Start time (approximately) of the request
         start = datetime.utcnow()

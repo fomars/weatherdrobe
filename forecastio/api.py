@@ -1,6 +1,7 @@
 import requests
 import time as Time
 import threading
+import logging
 
 from models import Forecast
 
@@ -56,6 +57,7 @@ def make_forecast(response):
 
 
 def make_request(url):
+    logging.info("Calling requests.get(url) url = "+url)
     return requests.get(url)
 
 
