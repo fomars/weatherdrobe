@@ -29,7 +29,7 @@ class GetWeather(webapp2.RequestHandler):
                                         <a href='/'>back</a>
                                     </body>
                                 </html>"""
-                            % (weather_data['summary'])
+                            % (weather_data)
                             )
 
 
